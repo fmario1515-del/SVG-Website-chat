@@ -4,67 +4,56 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>St. Veronica Garments</title>
-  <meta name="description" content="Church screen printing services for ministries, events, retreats, and servant teams." />
 
   <style>
     :root {
-      --navy: #0c2544;
-      --navy-soft: #173d65;
-      --cream: #f8efd8;
-      --cream-light: #fffaf1;
-      --gold: #c7993b;
-      --sage: #6e8873;
+      --navy: #071f4f;
+      --navy2: #12386a;
+      --cream: #f7eed8;
+      --cream2: #fffaf0;
+      --gold: #c99a3e;
+      --sage: #6f8b74;
       --ink: #172033;
-      --muted: #697386;
-      --line: rgba(12, 37, 68, 0.16);
-      --shadow: 0 24px 70px rgba(10, 25, 44, 0.18);
-      --radius: 8px;
+      --muted: #667085;
+      --line: rgba(7, 31, 79, 0.16);
+      --shadow: 0 22px 60px rgba(7, 31, 79, 0.18);
+      --radius: 10px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       color: var(--ink);
-      background:
-        linear-gradient(90deg, rgba(12, 37, 68, 0.035) 1px, transparent 1px),
-        linear-gradient(rgba(12, 37, 68, 0.035) 1px, transparent 1px),
-        var(--cream);
-      background-size: 38px 38px;
+      background: var(--cream);
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.5;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    button,
-    input,
-    select,
-    textarea {
+    button, input, select, textarea {
       font: inherit;
     }
 
-    .site-header {
+    button { cursor: pointer; }
+
+    .hidden { display: none !important; }
+
+    .header {
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 50;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 18px;
       padding: 14px clamp(18px, 4vw, 56px);
-      color: var(--cream-light);
-      background: rgba(12, 37, 68, 0.96);
-      border-bottom: 1px solid rgba(255, 250, 241, 0.16);
+      color: var(--cream2);
+      background: rgba(7, 31, 79, 0.96);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
     .brand {
@@ -73,119 +62,41 @@
       gap: 12px;
     }
 
-    .brand-mark {
-      display: grid;
-      width: 44px;
-      height: 44px;
-      place-items: center;
-      color: var(--navy);
-      background: var(--cream);
-      border: 2px solid var(--gold);
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
       border-radius: 50%;
-      font-weight: 900;
+      background: var(--cream2);
+      border: 2px solid var(--gold);
     }
 
-    .brand strong,
-    .brand small {
-      display: block;
-    }
+    .brand strong, .brand small { display: block; }
 
-    .brand strong {
-      font-size: 1rem;
-      letter-spacing: 0.02em;
-    }
+    .brand strong { font-size: 1rem; }
 
     .brand small {
-      color: rgba(255, 250, 241, 0.72);
+      color: rgba(255, 250, 240, 0.72);
       font-size: 0.78rem;
     }
 
-    .site-nav {
+    .nav {
       display: flex;
-      align-items: center;
       gap: 8px;
-    }
-
-    .site-nav a {
-      padding: 10px 14px;
-      border-radius: var(--radius);
-      color: rgba(255, 250, 241, 0.9);
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .site-nav a:hover {
-      background: rgba(255, 250, 241, 0.13);
-    }
-
-    .nav-toggle {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border: 1px solid rgba(255, 250, 241, 0.25);
-      border-radius: var(--radius);
-      background: transparent;
-      cursor: pointer;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 20px;
-      height: 2px;
-      margin: 4px auto;
-      background: var(--cream-light);
-    }
-
-    .hero {
-      min-height: 690px;
-      display: grid;
-      grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
-      align-items: center;
-      gap: clamp(28px, 5vw, 72px);
-      padding: clamp(58px, 8vw, 104px) clamp(20px, 5vw, 76px) 78px;
-      color: var(--cream-light);
-      background:
-        linear-gradient(115deg, rgba(12, 37, 68, 0.98), rgba(12, 37, 68, 0.86) 48%, rgba(12, 37, 68, 0.68)),
-        repeating-linear-gradient(135deg, rgba(255, 250, 241, 0.08) 0 1px, transparent 1px 18px),
-        radial-gradient(circle at 84% 18%, rgba(199, 153, 59, 0.35), transparent 32%),
-        var(--navy);
-      overflow: hidden;
-    }
-
-    .eyebrow {
-      margin: 0 0 10px;
-      color: var(--gold);
-      font-weight: 900;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-    }
-
-    .hero h1 {
-      margin: 0;
-      max-width: 680px;
-      font-size: clamp(3.2rem, 7.4vw, 6.7rem);
-      line-height: 1.02;
-      text-wrap: balance;
-    }
-
-    .hero p:not(.eyebrow) {
-      max-width: 610px;
-      margin: 22px 0 0;
-      color: rgba(255, 250, 241, 0.84);
-      font-size: clamp(1.05rem, 1.8vw, 1.24rem);
-    }
-
-    .hero-actions,
-    .form-footer,
-    .subheading-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
       flex-wrap: wrap;
     }
 
-    .hero-actions {
-      margin-top: 30px;
+    .nav button, .nav a {
+      border: 0;
+      border-radius: var(--radius);
+      padding: 10px 13px;
+      color: rgba(255, 250, 240, 0.92);
+      background: transparent;
+      font-weight: 800;
+    }
+
+    .nav button:hover, .nav a:hover {
+      background: rgba(255,255,255,0.12);
     }
 
     .button {
@@ -196,7 +107,6 @@
       border: 1px solid transparent;
       border-radius: var(--radius);
       padding: 11px 18px;
-      cursor: pointer;
       font-weight: 900;
     }
 
@@ -204,239 +114,126 @@
       color: var(--navy);
       background: var(--gold);
       border-color: var(--gold);
-      box-shadow: 0 14px 34px rgba(199, 155, 72, 0.24);
     }
 
     .button.secondary {
-      color: var(--cream-light);
-      background: rgba(255, 250, 241, 0.08);
-      border-color: rgba(255, 250, 241, 0.34);
+      color: var(--cream2);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.28);
     }
 
-    .button.compact {
-      min-height: 38px;
-      padding: 8px 12px;
+    .button.light {
       color: var(--navy);
-      background: transparent;
+      background: var(--cream2);
       border-color: var(--line);
     }
 
-    .hero-stats {
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .hero {
+      min-height: 720px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: clamp(28px, 5vw, 74px);
+      padding: clamp(56px, 8vw, 100px) clamp(20px, 5vw, 76px);
+      color: var(--cream2);
+      background:
+        linear-gradient(115deg, rgba(7,31,79,0.98), rgba(7,31,79,0.82)),
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 18px),
+        var(--navy);
+    }
+
+    .hero-logo {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .hero-logo img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: var(--cream2);
+      border: 3px solid var(--gold);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 780px;
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      line-height: 1;
+    }
+
+    .hero-text {
+      max-width: 670px;
+      margin-top: 20px;
+      color: rgba(255,250,240,0.86);
+      font-size: 1.16rem;
+    }
+
+    .verse {
+      margin-top: 24px;
+      max-width: 700px;
+      padding: 18px 20px;
+      border-left: 5px solid var(--gold);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .verse strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--gold);
+    }
+
+    .hero-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      margin-top: 28px;
     }
 
-    .hero-stats span {
-      display: grid;
-      min-width: 150px;
-      gap: 2px;
-      padding: 12px 14px;
-      border: 1px solid rgba(255, 250, 241, 0.18);
-      border-radius: var(--radius);
-      background: rgba(255, 250, 241, 0.08);
-      color: rgba(255, 250, 241, 0.78);
-      font-size: 0.86rem;
-    }
-
-    .hero-stats strong {
-      color: var(--cream-light);
-    }
-
-    .hero-media {
-      position: relative;
-      min-height: 390px;
-      display: grid;
-      place-items: center;
-    }
-
-    .hero-media::before {
-      content: "";
-      position: absolute;
-      width: min(470px, 88vw);
-      aspect-ratio: 1;
-      border: 1px solid rgba(255, 250, 241, 0.16);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 250, 241, 0.1), transparent 64%);
-    }
-
-    .print-note {
-      position: absolute;
-      right: 20px;
-      top: 18px;
-      z-index: 4;
-      max-width: 210px;
-      padding: 14px 16px;
-      border-radius: var(--radius);
-      color: var(--navy);
-      background: rgba(255, 250, 241, 0.92);
-      box-shadow: var(--shadow);
-    }
-
-    .print-note strong,
-    .print-note span {
-      display: block;
-    }
-
-    .print-note span {
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .shirt-preview {
-      position: relative;
-      z-index: 2;
-      width: min(380px, 78vw);
-      height: 430px;
-      filter: drop-shadow(0 34px 45px rgba(0, 0, 0, 0.32));
-    }
-
-    .shirt-body,
-    .shirt-sleeve {
-      position: absolute;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.58), transparent 42%),
-        var(--cream);
-      border: 3px solid rgba(255, 250, 241, 0.65);
-    }
-
-    .shirt-body {
-      inset: 42px 70px 0;
-      display: grid;
-      place-items: center;
-      align-content: center;
-      gap: 8px;
-      color: var(--navy);
-      border-radius: 34px 34px 18px 18px;
-    }
-
-    .shirt-body::before {
-      content: "";
-      position: absolute;
-      top: -3px;
-      left: 50%;
-      width: 86px;
-      height: 46px;
-      transform: translateX(-50%);
-      background: var(--navy);
-      border-radius: 0 0 44px 44px;
-    }
-
-    .shirt-sleeve {
-      top: 76px;
-      width: 100px;
-      height: 164px;
-    }
-
-    .shirt-sleeve.left {
-      left: 10px;
-      transform: rotate(18deg);
-      border-radius: 34px 10px 22px 22px;
-    }
-
-    .shirt-sleeve.right {
-      right: 10px;
-      transform: rotate(-18deg);
-      border-radius: 10px 34px 22px 22px;
-    }
-
-    .cross {
-      margin-top: 56px;
-      color: var(--gold);
-      font-size: 4rem;
-      line-height: 0.8;
-    }
-
-    .shirt-text {
-      color: var(--navy);
-      font-weight: 900;
-      font-size: 1.5rem;
-    }
-
-    .intro-band {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .intro-band div {
-      padding: 28px clamp(18px, 4vw, 46px);
-      background: var(--cream);
-    }
-
-    .intro-band strong,
-    .intro-band span {
-      display: block;
-    }
-
-    .intro-band strong {
-      color: var(--navy);
-      font-size: 1.04rem;
-    }
-
-    .intro-band span {
-      margin-top: 4px;
-      color: var(--muted);
-    }
-
-    .process-section {
-      padding: 0 clamp(20px, 5vw, 76px) clamp(46px, 7vw, 78px);
-    }
-
-    .process-inner {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      max-width: 1160px;
-      margin: -24px auto 0;
-      background: var(--cream-light);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .process-inner article {
+    .hero-card {
       padding: 26px;
-      border-right: 1px solid var(--line);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
     }
 
-    .process-inner article:last-child {
-      border-right: 0;
-    }
-
-    .process-inner span {
-      display: inline-grid;
-      width: 40px;
-      height: 40px;
-      place-items: center;
-      margin-bottom: 18px;
+    .hero-card img {
+      display: block;
+      width: min(340px, 100%);
+      margin: 0 auto;
       border-radius: 50%;
-      color: var(--cream-light);
-      background: var(--navy);
-      font-weight: 900;
-      font-size: 0.82rem;
-    }
-
-    .process-inner h3 {
-      margin: 0 0 8px;
-      color: var(--navy);
-    }
-
-    .process-inner p {
-      margin: 0;
-      color: var(--muted);
+      background: var(--cream2);
     }
 
     .section {
       padding: clamp(54px, 8vw, 92px) clamp(20px, 5vw, 76px);
     }
 
+    .section.alt {
+      background: #fbf4e2;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
     .section-heading {
-      max-width: 820px;
+      max-width: 880px;
       margin-bottom: 30px;
     }
 
@@ -445,57 +242,76 @@
       color: var(--navy);
       font-size: clamp(2rem, 4.8vw, 3.7rem);
       line-height: 1.08;
-      text-wrap: balance;
     }
 
-    .section-lead {
-      max-width: 720px;
-      margin-top: 14px;
+    .section-heading p:not(.eyebrow) {
+      margin-top: 12px;
       color: var(--muted);
       font-size: 1.05rem;
     }
 
-    .project-grid,
-    .policy-grid {
+    .about-grid, .project-grid, .policy-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .project-card,
-    .policy-grid article,
-    .order-form,
-    .servant-login,
-    .servant-portal {
-      background: var(--cream-light);
+    .about-grid { grid-template-columns: repeat(3, 1fr); }
+    .project-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .policy-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 1080px; }
+
+    .card, .project-card, .form-card, .portal-card, .policy-card, .summary-card {
+      background: var(--cream2);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      box-shadow: 0 12px 30px rgba(16, 38, 66, 0.08);
+      box-shadow: 0 12px 30px rgba(7,31,79,0.08);
     }
 
-    .project-card {
-      overflow: hidden;
-      transition: transform 180ms ease, box-shadow 180ms ease;
+    .card, .policy-card {
+      padding: 22px;
     }
 
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
+    .card h3, .project-card h3, .policy-card h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
     }
+
+    .card p, .project-card p, .policy-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .project-card { overflow: hidden; }
 
     .project-art {
-      position: relative;
       min-height: 230px;
       display: grid;
       place-items: end start;
       padding: 18px;
-      color: var(--cream-light);
-      overflow: hidden;
+      color: var(--cream2);
+      background:
+        linear-gradient(135deg, rgba(7,31,79,0.9), rgba(7,31,79,0.35)),
+        repeating-linear-gradient(45deg, #12386a 0 14px, #28527f 14px 28px);
     }
 
-    .project-art > span {
-      position: relative;
-      z-index: 2;
+    .project-art.two {
+      background:
+        linear-gradient(135deg, rgba(7,31,79,0.78), rgba(111,139,116,0.75)),
+        radial-gradient(circle at 25% 25%, var(--gold), transparent 30%);
+    }
+
+    .project-art.three {
+      background:
+        linear-gradient(135deg, rgba(7,31,79,0.92), rgba(201,154,62,0.52)),
+        repeating-linear-gradient(90deg, #12386a 0 18px, #254f7c 18px 36px);
+    }
+
+    .project-art.four {
+      background:
+        linear-gradient(135deg, rgba(7,31,79,0.9), rgba(7,31,79,0.35)),
+        linear-gradient(45deg, #6f8b74, #eadfbe);
+    }
+
+    .project-art span {
       display: inline-flex;
       padding: 8px 10px;
       border-radius: var(--radius);
@@ -504,147 +320,70 @@
       font-weight: 900;
     }
 
-    .project-art.retreat {
-      background:
-        linear-gradient(135deg, rgba(16, 38, 66, 0.94), rgba(16, 38, 66, 0.42)),
-        repeating-linear-gradient(45deg, var(--navy-soft) 0 14px, #284f77 14px 28px);
-    }
+    .project-copy { padding: 20px; }
 
-    .project-art.youth {
-      background:
-        linear-gradient(135deg, rgba(16, 38, 66, 0.78), rgba(111, 140, 117, 0.72)),
-        radial-gradient(circle at 25% 25%, var(--gold), transparent 30%);
-    }
-
-    .project-art.feast {
-      background:
-        linear-gradient(135deg, rgba(16, 38, 66, 0.92), rgba(199, 155, 72, 0.5)),
-        repeating-linear-gradient(90deg, #173554 0 18px, #254866 18px 36px);
-    }
-
-    .project-art.choir {
-      background:
-        linear-gradient(135deg, rgba(16, 38, 66, 0.9), rgba(16, 38, 66, 0.38)),
-        linear-gradient(45deg, #6f8c75, #eadfbe);
-    }
-
-    .mock-shirt {
-      position: absolute;
-      right: 18px;
-      bottom: 36px;
-      width: 124px;
-      height: 142px;
-      display: grid;
-      place-items: center;
-      border-radius: 24px 24px 10px 10px;
-      box-shadow: 0 22px 38px rgba(0, 0, 0, 0.2);
-      transform: rotate(-7deg);
-    }
-
-    .mock-shirt::before,
-    .mock-shirt::after {
-      content: "";
-      position: absolute;
-      top: 20px;
-      width: 42px;
-      height: 68px;
-      border-radius: 16px 10px 18px 18px;
-      background: inherit;
-    }
-
-    .mock-shirt::before {
-      left: -28px;
-      transform: rotate(18deg);
-    }
-
-    .mock-shirt::after {
-      right: -28px;
-      transform: rotate(-18deg);
-    }
-
-    .mock-shirt span {
-      position: relative;
-      z-index: 1;
-      margin-top: 28px;
-      font-weight: 900;
-      font-size: 0.84rem;
-    }
-
-    .mock-shirt.light {
-      color: var(--navy);
+    .uploaded-image {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
       background: var(--cream);
     }
 
-    .mock-shirt.navy {
-      color: var(--cream);
-      background: #0b213d;
+    .order-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 22px;
+      align-items: start;
     }
 
-    .mock-shirt.gold {
-      color: var(--navy);
-      background: #d1a24a;
-    }
-
-    .mock-shirt.sage {
-      color: var(--cream-light);
-      background: var(--sage);
-    }
-
-    .project-copy,
-    .policy-grid article {
-      padding: 20px;
-    }
-
-    h3 {
-      margin: 0 0 8px;
-      color: var(--navy);
-      font-size: 1.05rem;
-    }
-
-    p {
-      margin: 0;
-    }
-
-    .project-copy p,
-    .policy-grid p {
-      color: var(--muted);
-    }
-
-    .order-section,
-    .servants-section {
-      background:
-        linear-gradient(180deg, rgba(255, 250, 241, 0.72), rgba(248, 239, 216, 0.72)),
-        #fbf4e2;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .order-form,
-    .servant-login,
-    .servant-portal {
-      max-width: 1080px;
+    .form-card, .portal-card, .summary-card {
       padding: clamp(18px, 4vw, 34px);
       box-shadow: var(--shadow);
     }
 
-    fieldset {
-      margin: 0 0 24px;
-      padding: 22px;
-      border: 1px solid rgba(16, 38, 66, 0.1);
+    .step-bar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .step-pill {
+      min-height: 42px;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(248, 239, 216, 0.35);
+      color: var(--muted);
+      background: #fffdf7;
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .step-pill.active {
+      color: var(--navy);
+      border-color: var(--gold);
+      background: rgba(201,154,62,0.16);
+    }
+
+    .step { display: none; }
+    .step.active { display: block; }
+
+    fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
     }
 
     legend {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       color: var(--navy);
+      font-size: 1.32rem;
       font-weight: 900;
-      font-size: 1.18rem;
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
     }
 
@@ -652,17 +391,13 @@
       display: grid;
       gap: 7px;
       color: var(--navy);
-      font-weight: 800;
       font-size: 0.9rem;
+      font-weight: 800;
     }
 
-    .wide {
-      grid-column: 1 / -1;
-    }
+    .wide { grid-column: 1 / -1; }
 
-    input,
-    select,
-    textarea {
+    input, select, textarea {
       width: 100%;
       min-height: 44px;
       border: 1px solid var(--line);
@@ -670,118 +405,199 @@
       padding: 11px 12px;
       color: var(--ink);
       background: #fffdf7;
-      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
     }
 
-    textarea {
-      resize: vertical;
+    textarea { resize: vertical; }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 3px solid rgba(201,154,62,0.28);
+      border-color: var(--gold);
+      background: white;
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus,
-    button:focus-visible,
-    a:focus-visible {
-      outline: 3px solid rgba(199, 155, 72, 0.45);
-      outline-offset: 2px;
+    .size-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: rgba(199, 153, 59, 0.72);
-      background: #ffffff;
-      box-shadow: 0 0 0 4px rgba(199, 153, 59, 0.12);
-    }
-
-    .sizes-block {
-      margin-top: 20px;
-    }
-
-    .subheading-row {
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
-
-    .icon-button {
-      width: 40px;
-      height: 40px;
+    .size-grid label {
+      padding: 12px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      color: var(--cream-light);
-      background: var(--navy);
-      cursor: pointer;
-      font-size: 1.35rem;
-      font-weight: 900;
-      box-shadow: 0 10px 22px rgba(12, 37, 68, 0.16);
+      background: rgba(255,253,247,0.72);
     }
 
-    .size-rows {
-      display: grid;
-      gap: 10px;
-    }
-
-    .size-row {
-      display: grid;
-      grid-template-columns: minmax(130px, 1fr) minmax(120px, 1fr) 40px;
-      gap: 10px;
-      align-items: end;
-      padding: 12px;
-      border: 1px solid rgba(16, 38, 66, 0.1);
-      border-radius: var(--radius);
-      background: rgba(255, 253, 247, 0.68);
-    }
-
-    .remove-size {
-      width: 40px;
-      height: 44px;
-      border: 1px solid rgba(16, 38, 66, 0.22);
-      border-radius: var(--radius);
-      color: var(--navy);
-      background: transparent;
-      cursor: pointer;
-      font-weight: 900;
-    }
-
-    .checkbox-row {
-      grid-template-columns: auto 1fr;
-      align-items: start;
-      margin-bottom: 20px;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .checkbox-row input,
-    .availability-grid input {
-      width: 18px;
-      min-height: 18px;
-      margin-top: 3px;
-    }
-
-    .form-footer {
+    .form-actions {
+      display: flex;
       justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
     }
 
-    .form-status {
+    .status {
       min-height: 24px;
       color: var(--sage);
       font-weight: 900;
     }
 
-    .servant-login {
+    .mockup-card {
+      position: sticky;
+      top: 96px;
+    }
+
+    .mockup-wrap {
+      position: relative;
+      height: 420px;
+      display: grid;
+      place-items: center;
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fffdf7;
+      overflow: hidden;
+    }
+
+    .mock-shirt {
+      position: relative;
+      width: 210px;
+      height: 260px;
+      border-radius: 36px 36px 16px 16px;
+      background: #f7efd8;
+      border: 2px solid rgba(7,31,79,0.14);
+      box-shadow: 0 20px 40px rgba(7,31,79,0.16);
+    }
+
+    .mock-shirt::before, .mock-shirt::after {
+      content: "";
+      position: absolute;
+      top: 34px;
+      width: 72px;
+      height: 108px;
+      background: inherit;
+      border: inherit;
+      z-index: -1;
+    }
+
+    .mock-shirt::before {
+      left: -54px;
+      transform: rotate(18deg);
+      border-radius: 24px 8px 24px 20px;
+    }
+
+    .mock-shirt::after {
+      right: -54px;
+      transform: rotate(-18deg);
+      border-radius: 8px 24px 20px 24px;
+    }
+
+    .mock-neck {
+      position: absolute;
+      top: -2px;
+      left: 50%;
+      width: 74px;
+      height: 42px;
+      transform: translateX(-50%);
+      border-radius: 0 0 40px 40px;
+      background: #fffdf7;
+      border: 2px solid rgba(7,31,79,0.14);
+    }
+
+    .design-preview {
+      position: absolute;
+      left: 50%;
+      width: 92px;
+      height: 92px;
+      transform: translateX(-50%);
+      display: grid;
+      place-items: center;
+      color: var(--navy);
+      font-weight: 900;
+      text-align: center;
+      font-size: 0.78rem;
+      overflow: hidden;
+    }
+
+    .design-preview.front-center { top: 92px; width: 110px; height: 110px; }
+    .design-preview.left-chest { top: 76px; left: 42%; width: 58px; height: 58px; }
+    .design-preview.right-chest { top: 76px; left: 58%; width: 58px; height: 58px; }
+    .design-preview.back-center { top: 96px; width: 124px; height: 124px; }
+    .design-preview.upper-back { top: 62px; width: 130px; height: 72px; }
+    .design-preview.lower-back { top: 150px; width: 120px; height: 80px; }
+
+    .design-preview img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .check-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .check-row input {
+      width: 18px;
+      min-height: 18px;
+      margin-top: 3px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      place-items: center;
+      padding: 18px;
+      background: rgba(5,16,31,0.72);
+    }
+
+    .modal-backdrop.open { display: grid; }
+
+    .modal {
+      width: min(840px, 100%);
+      max-height: 86vh;
+      overflow: auto;
+      padding: 24px;
+      background: var(--cream2);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .modal h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .terms-text {
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .terms-text h3 {
+      margin: 8px 0 0;
+      color: var(--navy);
+    }
+
+    .portal-login {
       display: flex;
       align-items: end;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    .servant-login label {
+    .portal-login label {
       min-width: min(360px, 100%);
-    }
-
-    .hidden {
-      display: none !important;
     }
 
     .tabs {
@@ -800,23 +616,17 @@
       padding: 10px 12px;
       color: var(--muted);
       background: transparent;
-      cursor: pointer;
       font-weight: 900;
     }
 
     .tab.active {
       color: var(--navy);
       border-color: var(--gold);
-      background: rgba(199, 155, 72, 0.1);
+      background: rgba(201,154,62,0.12);
     }
 
-    .tab-panel {
-      display: none;
-    }
-
-    .tab-panel.active {
-      display: block;
-    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
 
     .calendar-shell {
       overflow: hidden;
@@ -832,16 +642,11 @@
       background: var(--cream);
     }
 
-    .availability-form {
-      display: grid;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
     .availability-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 10px;
+      margin: 16px 0;
     }
 
     .availability-grid label {
@@ -854,9 +659,15 @@
       background: #fffdf7;
     }
 
+    .availability-grid input {
+      width: 18px;
+      min-height: 18px;
+    }
+
     .saved-list {
       display: grid;
       gap: 10px;
+      margin-top: 16px;
     }
 
     .saved-item {
@@ -866,9 +677,7 @@
       background: #fffdf7;
     }
 
-    .saved-item strong {
-      color: var(--navy);
-    }
+    .saved-item strong { color: var(--navy); }
 
     .saved-item span {
       display: block;
@@ -876,579 +685,659 @@
       color: var(--muted);
     }
 
-    .policy-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      max-width: 1080px;
-    }
-
-    .policy-grid article {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .policy-grid article::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: var(--gold);
-    }
-
-    .site-footer {
+    .footer {
       display: flex;
       justify-content: space-between;
       gap: 16px;
       padding: 24px clamp(20px, 5vw, 76px);
-      color: rgba(255, 250, 241, 0.78);
+      color: rgba(255,250,240,0.78);
       background: var(--navy);
     }
 
-    .site-footer span:first-child {
-      color: var(--cream-light);
-      font-weight: 900;
+    .footer strong { color: var(--cream2); }
+
+    @media (max-width: 980px) {
+      .hero, .order-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .mockup-card { position: static; }
+
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      .about-grid, .form-grid, .availability-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .step-bar { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 920px) {
-      .nav-toggle {
-        display: block;
-      }
-
-      .site-nav {
-        position: absolute;
-        top: 100%;
-        right: 16px;
-        left: 16px;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 10px;
-        background: var(--navy);
-        border: 1px solid rgba(255, 250, 241, 0.14);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-      }
-
-      .site-nav.open {
-        display: flex;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-media {
-        order: -1;
-        min-height: 330px;
-      }
-
-      .shirt-preview {
-        width: 310px;
-        height: 350px;
-      }
-
-      .project-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .process-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .process-inner article {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .process-inner article:last-child {
-        border-bottom: 0;
-      }
-
-      .intro-band,
-      .form-grid,
-      .availability-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .site-footer {
+    @media (max-width: 640px) {
+      .header {
+        align-items: flex-start;
         flex-direction: column;
       }
-    }
 
-    @media (max-width: 620px) {
-      .site-header {
-        padding-inline: 14px;
-      }
+      .nav { width: 100%; }
 
-      .brand strong {
-        font-size: 0.92rem;
-      }
+      .nav button, .nav a { flex: 1; }
 
-      .brand small {
-        font-size: 0.72rem;
-      }
+      h1 { font-size: clamp(2.7rem, 15vw, 3.7rem); }
 
-      .hero {
-        min-height: auto;
-        padding-top: 34px;
-      }
-
-      .print-note {
-        position: relative;
-        inset: auto;
-        justify-self: center;
-        margin-bottom: -28px;
-      }
-
-      .hero-stats span {
-        width: 100%;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.55rem, 14vw, 3.55rem);
-      }
-
-      .project-grid,
-      .policy-grid {
+      .project-grid, .policy-grid, .size-grid {
         grid-template-columns: 1fr;
       }
 
-      .size-row {
-        grid-template-columns: 1fr;
-      }
-
-      .remove-size {
-        width: 100%;
-      }
-
-      .form-footer {
-        align-items: stretch;
-      }
-
-      .form-footer .button {
-        width: 100%;
-      }
+      .footer { flex-direction: column; }
     }
   </style>
 </head>
 
 <body>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="St. Veronica Garments home">
-      <span class="brand-mark">SV</span>
+  <header class="header">
+    <a class="brand" href="#home" onclick="showPage('homePage')">
+      <img src="logo.png" alt="St. Veronica Garments logo" />
       <span>
         <strong>St. Veronica Garments</strong>
         <small>Church screen printing</small>
       </span>
     </a>
 
-    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="#projects">Projects</a>
-      <a href="#order">Place Order</a>
-      <a href="#policies">Terms</a>
+    <nav class="nav">
+      <button type="button" onclick="showPage('homePage')">Home</button>
+      <a href="#projects">Work</a>
+      <button type="button" onclick="showPage('orderPage')">Place Order</button>
       <a href="#servants">Servants</a>
+      <a href="#policies">Terms</a>
     </nav>
   </header>
 
-  <main id="home">
-    <section class="hero">
-      <div class="hero-media" aria-hidden="true">
-        <div class="print-note">
-          <strong>Custom prints</strong>
-          <span>for services, retreats, and servant teams</span>
-        </div>
-
-        <div class="shirt-preview">
-          <div class="shirt-sleeve left"></div>
-          <div class="shirt-sleeve right"></div>
-          <div class="shirt-body">
-            <span class="cross">+</span>
-            <span class="shirt-text">SERVE</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-copy">
-        <p class="eyebrow">Ministry apparel made with care</p>
-        <h1>St. Veronica Garments</h1>
-        <p>
-          Screen printed shirts for church services, retreats, servant teams, youth events,
-          fundraisers, and parish celebrations.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button primary" href="#order">Start an Order</a>
-          <a class="button secondary" href="#projects">View Projects</a>
-        </div>
-
-        <div class="hero-stats" aria-label="Service features">
-          <span><strong>SVG / AI</strong> artwork ready</span>
-          <span><strong>Team orders</strong> by size</span>
-          <span><strong>Servant area</strong> built in</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="intro-band" aria-label="Service highlights">
-      <div>
-        <strong>Custom garments</strong>
-        <span>Tees, long sleeves, hoodies, crews, and totes.</span>
-      </div>
-      <div>
-        <strong>Event ready</strong>
-        <span>Collect due dates, quantities, colors, and artwork in one request.</span>
-      </div>
-      <div>
-        <strong>Servant coordination</strong>
-        <span>Private schedule and weekly availability area for the print team.</span>
-      </div>
-    </section>
-
-    <section class="process-section" aria-label="How orders work">
-      <div class="process-inner">
-        <article>
-          <span>01</span>
-          <h3>Share the event</h3>
-          <p>Tell us who the shirts are for and when you need them ready.</p>
-        </article>
-        <article>
-          <span>02</span>
-          <h3>Choose the garments</h3>
-          <p>Pick shirt type, colors, ink, sizes, and quantities in one place.</p>
-        </article>
-        <article>
-          <span>03</span>
-          <h3>Upload artwork</h3>
-          <p>Send vector files and placement notes so the team can confirm the print.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Previous projects</p>
-        <h2>Work for ministries, services, and parish events</h2>
-      </div>
-
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-art retreat">
-            <div class="mock-shirt light"><span>AMEN</span></div>
-            <span>Retreat</span>
-          </div>
-          <div class="project-copy">
-            <h3>Confirmation Retreat</h3>
-            <p>Navy tees with cream front crest and back scripture layout.</p>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-art youth">
-            <div class="mock-shirt navy"><span>YOUTH</span></div>
-            <span>Youth</span>
-          </div>
-          <div class="project-copy">
-            <h3>Youth Service Night</h3>
-            <p>Soft cream shirts with navy sleeve mark and full-back design.</p>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-art feast">
-            <div class="mock-shirt gold"><span>FEAST</span></div>
-            <span>Feast</span>
-          </div>
-          <div class="project-copy">
-            <h3>Feast Day Volunteers</h3>
-            <p>Volunteer apparel with simple one-color print for easy sorting.</p>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-art choir">
-            <div class="mock-shirt sage"><span>CHOIR</span></div>
-            <span>Choir</span>
-          </div>
-          <div class="project-copy">
-            <h3>Choir Fundraiser</h3>
-            <p>Crewneck sweatshirts with tonal ink and small left-chest placement.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="order" class="section order-section">
-      <div class="section-heading">
-        <p class="eyebrow">Order placement</p>
-        <h2>Request custom printed garments</h2>
-        <p class="section-lead">
-          This form gathers the details the print team needs before confirming price,
-          timeline, artwork, and pickup.
-        </p>
-      </div>
-
-      <form id="orderForm" class="order-form">
-        <fieldset>
-          <legend>Personal Information</legend>
-          <div class="form-grid">
-            <label>
-              Name
-              <input name="name" type="text" autocomplete="name" required />
-            </label>
-            <label>
-              Email
-              <input name="email" type="email" autocomplete="email" required />
-            </label>
-            <label>
-              Phone Number
-              <input name="phone" type="tel" autocomplete="tel" required />
-            </label>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Event Details</legend>
-          <div class="form-grid">
-            <label>
-              Service or Event Name
-              <input name="eventName" type="text" required />
-            </label>
-            <label>
-              Date Needed By
-              <input name="neededBy" type="date" required />
-            </label>
-            <label class="wide">
-              Notes for the Team
-              <textarea name="eventNotes" rows="4" placeholder="Tell us about timing, pickup needs, or anything special."></textarea>
-            </label>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Garment Selection</legend>
-          <div class="form-grid">
-            <label>
-              Garment Type
-              <select name="garmentType" required>
-                <option value="">Select one</option>
-                <option>T-shirt</option>
-                <option>Long sleeve</option>
-                <option>Hoodie</option>
-                <option>Crewneck sweatshirt</option>
-                <option>Tote bag</option>
-                <option>Other</option>
-              </select>
-            </label>
-            <label>
-              Garment Color
-              <input name="garmentColor" type="text" placeholder="Cream, navy, black..." required />
-            </label>
-            <label>
-              Ink Color
-              <input name="inkColor" type="text" placeholder="Navy, cream, gold..." required />
-            </label>
-          </div>
-
-          <div class="sizes-block">
-            <div class="subheading-row">
-              <h3>Sizes and Amounts</h3>
-              <button class="icon-button" id="addSize" type="button" aria-label="Add size row" title="Add size">
-                +
-              </button>
+  <main>
+    <div id="homePage" class="page active">
+      <section id="home" class="hero">
+        <div>
+          <div class="hero-logo">
+            <img src="logo.png" alt="St. Veronica Garments logo" />
+            <div>
+              <p class="eyebrow">Ministry apparel made with care</p>
+              <strong>Custom shirts for services, retreats, and church events</strong>
             </div>
-            <div id="sizeRows" class="size-rows" aria-live="polite"></div>
           </div>
-        </fieldset>
 
-        <fieldset>
-          <legend>Design Files and Placement</legend>
-          <div class="form-grid">
-            <label>
-              Upload Design
-              <input name="designFile" type="file" accept=".svg,.ai,image/svg+xml,application/postscript" required />
-            </label>
-            <label>
-              Design Placement
-              <select name="placement" required>
-                <option value="">Select placement</option>
-                <option>Front center</option>
-                <option>Left chest</option>
-                <option>Back center</option>
-                <option>Right sleeve</option>
-                <option>Left sleeve</option>
-                <option>Multiple placements</option>
-              </select>
-            </label>
-            <label class="wide">
-              Placement Instructions
-              <textarea
-                name="placementNotes"
-                rows="4"
-                placeholder="Example: 3 inch logo on left chest, large design centered on back."
-              ></textarea>
-            </label>
+          <h1>St. Veronica Garments</h1>
+
+          <p class="hero-text">
+            We create custom screen printed garments for church services, servant teams,
+            retreats, youth events, fundraisers, and parish celebrations.
+          </p>
+
+          <div class="verse">
+            “As each one has received a gift, minister it to one another, as good stewards
+            of the manifold grace of God.”
+            <strong>1 Peter 4:10</strong>
           </div>
-        </fieldset>
 
-        <label class="checkbox-row">
-          <input name="agree" type="checkbox" required />
-          <span>
-            I understand this is an order request and St. Veronica Garments will confirm
-            pricing, timeline, and artwork before printing.
-          </span>
-        </label>
-
-        <div class="form-footer">
-          <p id="orderStatus" class="form-status" role="status"></p>
-          <button class="button primary" type="submit">Submit Order Request</button>
-        </div>
-      </form>
-    </section>
-
-    <section id="servants" class="section servants-section">
-      <div class="section-heading">
-        <p class="eyebrow">Servants only</p>
-        <h2>Private print team area</h2>
-      </div>
-
-      <div id="loginPanel" class="servant-login">
-        <label>
-          Servant Password
-          <input id="servantPassword" type="password" autocomplete="current-password" />
-        </label>
-        <button id="unlockServants" class="button primary" type="button">Unlock</button>
-        <p id="loginStatus" class="form-status" role="status"></p>
-      </div>
-
-      <div id="servantPortal" class="servant-portal hidden">
-        <div class="tabs" role="tablist" aria-label="Servant portal tabs">
-          <button class="tab active" type="button" data-tab="calendar" role="tab" aria-selected="true">Calendar</button>
-          <button class="tab" type="button" data-tab="availability" role="tab" aria-selected="false">Availability</button>
-          <button class="tab" type="button" data-tab="orders" role="tab" aria-selected="false">Orders</button>
+          <div class="hero-actions">
+            <button class="button primary" type="button" onclick="showPage('orderPage')">Place an Order</button>
+            <a class="button secondary" href="#projects">See Completed Work</a>
+          </div>
         </div>
 
-        <section class="tab-panel active" id="calendarPanel">
-          <div class="calendar-shell">
-            <iframe
-              title="St. Veronica Garments Google Calendar"
-              src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FNew_York"
-            ></iframe>
-          </div>
-        </section>
+        <div class="hero-card">
+          <img src="logo.png" alt="St. Veronica Garments logo" />
+        </div>
+      </section>
 
-        <section class="tab-panel" id="availabilityPanel">
-          <form id="availabilityForm" class="availability-form">
-            <div class="form-grid">
-              <label>
-                Name
-                <input name="servantName" type="text" required />
-              </label>
-              <label>
-                Week Of
-                <input name="weekOf" type="date" required />
-              </label>
+      <section class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">About us</p>
+          <h2>Printed with purpose, made for ministry</h2>
+          <p>
+            St. Veronica Garments helps church groups create apparel that is organized,
+            meaningful, and ready for the service or event it belongs to.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="card">
+            <h3>For ministries</h3>
+            <p>Team shirts, youth events, servant apparel, retreat garments, and parish celebrations.</p>
+          </article>
+          <article class="card">
+            <h3>Clear order details</h3>
+            <p>Contact info, event dates, garment colors, ink colors, sizes, artwork, and placements.</p>
+          </article>
+          <article class="card">
+            <h3>Servant coordination</h3>
+            <p>A private portal for calendar viewing, availability, and admin photo uploads.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Completed work</p>
+          <h2>Previous projects and completed orders</h2>
+          <p>Photos added through the admin portal will appear here on the same browser.</p>
+        </div>
+
+        <div id="uploadedProjectGrid" class="project-grid"></div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-art"><span>Retreat</span></div>
+            <div class="project-copy">
+              <h3>Confirmation Retreat</h3>
+              <p>Navy tees with cream front crest and back scripture layout.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art two"><span>Youth</span></div>
+            <div class="project-copy">
+              <h3>Youth Service Night</h3>
+              <p>Soft cream shirts with navy sleeve mark and full-back design.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art three"><span>Feast</span></div>
+            <div class="project-copy">
+              <h3>Feast Day Volunteers</h3>
+              <p>Volunteer apparel with simple one-color print for easy sorting.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art four"><span>Choir</span></div>
+            <div class="project-copy">
+              <h3>Choir Fundraiser</h3>
+              <p>Crewneck sweatshirts with tonal ink and left-chest placement.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="servants" class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Servants only</p>
+          <h2>Private print team portal</h2>
+          <p>Password <strong>servant</strong> opens calendar and availability. Password <strong>admin</strong> also opens photo uploads.</p>
+        </div>
+
+        <div class="portal-card">
+          <div id="loginPanel" class="portal-login">
+            <label>
+              Servant Password
+              <input id="portalPassword" type="password" />
+            </label>
+            <button id="unlockPortal" class="button primary" type="button">Unlock</button>
+            <p id="loginStatus" class="status"></p>
+          </div>
+
+          <div id="portalArea" class="hidden">
+            <div class="tabs">
+              <button class="tab active" type="button" data-tab="calendarPanel">Calendar</button>
+              <button class="tab" type="button" data-tab="availabilityPanel">Availability</button>
+              <button id="adminTab" class="tab hidden" type="button" data-tab="adminPanel">Admin Photos</button>
             </div>
 
-            <div class="availability-grid">
-              <label><input name="days" type="checkbox" value="Monday" /> Monday</label>
-              <label><input name="days" type="checkbox" value="Tuesday" /> Tuesday</label>
-              <label><input name="days" type="checkbox" value="Wednesday" /> Wednesday</label>
-              <label><input name="days" type="checkbox" value="Thursday" /> Thursday</label>
-              <label><input name="days" type="checkbox" value="Friday" /> Friday</label>
-              <label><input name="days" type="checkbox" value="Saturday" /> Saturday</label>
-              <label><input name="days" type="checkbox" value="Sunday" /> Sunday</label>
+            <section id="calendarPanel" class="tab-panel active">
+              <div class="calendar-shell">
+                <iframe
+                  title="St. Veronica Garments Google Calendar"
+                  src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FNew_York"
+                ></iframe>
+              </div>
+            </section>
+
+            <section id="availabilityPanel" class="tab-panel">
+              <form id="availabilityForm">
+                <div class="form-grid">
+                  <label>Name <input name="servantName" type="text" required /></label>
+                  <label>Week Of <input name="weekOf" type="date" required /></label>
+                </div>
+
+                <div class="availability-grid">
+                  <label><input name="days" type="checkbox" value="Monday" /> Monday</label>
+                  <label><input name="days" type="checkbox" value="Tuesday" /> Tuesday</label>
+                  <label><input name="days" type="checkbox" value="Wednesday" /> Wednesday</label>
+                  <label><input name="days" type="checkbox" value="Thursday" /> Thursday</label>
+                  <label><input name="days" type="checkbox" value="Friday" /> Friday</label>
+                  <label><input name="days" type="checkbox" value="Saturday" /> Saturday</label>
+                  <label><input name="days" type="checkbox" value="Sunday" /> Sunday</label>
+                </div>
+
+                <label>Notes <textarea name="availabilityNotes" rows="4"></textarea></label>
+
+                <div class="form-actions">
+                  <p id="availabilityStatus" class="status"></p>
+                  <button class="button primary" type="submit">Save Availability</button>
+                </div>
+              </form>
+
+              <div id="availabilityList" class="saved-list"></div>
+            </section>
+
+            <section id="adminPanel" class="tab-panel">
+              <form id="photoForm">
+                <div class="form-grid">
+                  <label>Project Title <input name="photoTitle" type="text" required /></label>
+                  <label>Photo <input name="photoFile" type="file" accept="image/*" required /></label>
+                  <label class="wide">Short Description <textarea name="photoDescription" rows="3" required></textarea></label>
+                </div>
+
+                <div class="form-actions">
+                  <p id="photoStatus" class="status"></p>
+                  <button class="button primary" type="submit">Add Photo to Completed Work</button>
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section id="policies" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Terms and policies</p>
+          <h2>How orders are handled</h2>
+        </div>
+
+        <div class="policy-grid">
+          <article class="policy-card">
+            <h3>Pricing</h3>
+            <p>Pricing is based on wholesale garment cost plus supplies and production materials.</p>
+          </article>
+          <article class="policy-card">
+            <h3>Turnaround</h3>
+            <p>Production time depends on quantity and order complexity.</p>
+          </article>
+          <article class="policy-card">
+            <h3>Payment</h3>
+            <p>Payment is cash or Zelle. A 50% non-refundable deposit is required to begin.</p>
+          </article>
+          <article class="policy-card">
+            <h3>Pickup</h3>
+            <p>The remaining balance is due upon pickup in cash or through Zelle.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div id="orderPage" class="page">
+      <section class="section alt">
+        <div class="section-heading">
+          <p class="eyebrow">Place an order</p>
+          <h2>Custom garment request</h2>
+          <p>Complete each step. You can preview SVG or PNG artwork on the mockup before submitting.</p>
+        </div>
+
+        <div class="order-layout">
+          <form id="orderForm" class="form-card">
+            <div class="step-bar">
+              <button class="step-pill active" type="button" data-step-button="0">Personal</button>
+              <button class="step-pill" type="button" data-step-button="1">Event</button>
+              <button class="step-pill" type="button" data-step-button="2">Garments</button>
+              <button class="step-pill" type="button" data-step-button="3">Design</button>
+              <button class="step-pill" type="button" data-step-button="4">Terms</button>
             </div>
 
-            <label>
-              Notes
-              <textarea name="availabilityNotes" rows="4" placeholder="Times you can serve, rides needed, limits, etc."></textarea>
-            </label>
+            <fieldset class="step active">
+              <legend>Personal Information</legend>
+              <div class="form-grid">
+                <label>Name <input name="name" type="text" required /></label>
+                <label>Email <input name="email" type="email" required /></label>
+                <label>Phone Number <input name="phone" type="tel" required /></label>
+              </div>
+            </fieldset>
 
-            <div class="form-footer">
-              <p id="availabilityStatus" class="form-status" role="status"></p>
-              <button class="button primary" type="submit">Save Availability</button>
+            <fieldset class="step">
+              <legend>Event Information</legend>
+              <div class="form-grid">
+                <label>Service or Event Name <input name="eventName" type="text" required /></label>
+                <label>Date Needed By <input name="neededBy" type="date" required /></label>
+                <label class="wide">Event Notes <textarea name="eventNotes" rows="4"></textarea></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend>Garment, Color, Ink, and Sizes</legend>
+              <div class="form-grid">
+                <label>
+                  Garment Type
+                  <select name="garmentType" id="garmentType" required>
+                    <option value="">Select one</option>
+                    <option>T-shirt</option>
+                    <option>Long sleeve</option>
+                    <option>Hoodie</option>
+                    <option>Crewneck sweatshirt</option>
+                    <option>Tote bag</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+                <label>
+                  Garment Color
+                  <select name="garmentColor" id="garmentColor" required>
+                    <option value="">Select one</option>
+                    <option value="#f7efd8">Cream</option>
+                    <option value="#071f4f">Navy</option>
+                    <option value="#111827">Black</option>
+                    <option value="#ffffff">White</option>
+                    <option value="#6f8b74">Sage</option>
+                    <option value="#c99a3e">Gold</option>
+                  </select>
+                </label>
+                <label>Ink Color <input name="inkColor" type="text" placeholder="Navy, cream, gold..." required /></label>
+              </div>
+
+              <div class="size-grid">
+                <label>YXS <input name="size_YXS" type="number" min="0" value="0" /></label>
+                <label>YS <input name="size_YS" type="number" min="0" value="0" /></label>
+                <label>YM <input name="size_YM" type="number" min="0" value="0" /></label>
+                <label>YL <input name="size_YL" type="number" min="0" value="0" /></label>
+                <label>YXL <input name="size_YXL" type="number" min="0" value="0" /></label>
+                <label>S <input name="size_S" type="number" min="0" value="0" /></label>
+                <label>M <input name="size_M" type="number" min="0" value="0" /></label>
+                <label>L <input name="size_L" type="number" min="0" value="0" /></label>
+                <label>XL <input name="size_XL" type="number" min="0" value="0" /></label>
+                <label>2XL <input name="size_2XL" type="number" min="0" value="0" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend>Design and Placement</legend>
+              <div class="form-grid">
+                <label>Front Design SVG/PNG <input id="frontDesign" name="frontDesign" type="file" accept=".svg,.png,image/svg+xml,image/png" /></label>
+                <label>
+                  Front Placement
+                  <select id="frontPlacement" name="frontPlacement">
+                    <option value="front-center">Front center</option>
+                    <option value="left-chest">Left chest</option>
+                    <option value="right-chest">Right chest</option>
+                  </select>
+                </label>
+
+                <label>Back Design SVG/PNG <input id="backDesign" name="backDesign" type="file" accept=".svg,.png,image/svg+xml,image/png" /></label>
+                <label>
+                  Back Placement
+                  <select id="backPlacement" name="backPlacement">
+                    <option value="back-center">Back center</option>
+                    <option value="upper-back">Upper back</option>
+                    <option value="lower-back">Lower back</option>
+                  </select>
+                </label>
+
+                <label class="wide">Design Notes <textarea name="designNotes" rows="4"></textarea></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="step">
+              <legend>Terms and Signature</legend>
+              <p style="color: var(--muted); margin-bottom: 16px;">
+                Please open the terms and conditions, check the box, then type your full name as your signature.
+              </p>
+
+              <button id="openTerms" class="button light" type="button">Open Terms and Conditions</button>
+
+              <div style="margin-top: 18px;">
+                <label class="check-row">
+                  <input id="termsCheck" name="termsCheck" type="checkbox" required />
+                  <span>I have read and agree to the terms and conditions.</span>
+                </label>
+              </div>
+
+              <div class="form-grid" style="margin-top: 18px;">
+                <label class="wide">Type Your Full Name as Signature <input name="signature" type="text" required /></label>
+              </div>
+            </fieldset>
+
+            <div class="form-actions">
+              <button id="prevStep" class="button light" type="button">Back</button>
+              <p id="orderStatus" class="status"></p>
+              <button id="nextStep" class="button primary" type="button">Next</button>
+              <button id="submitOrder" class="button primary hidden" type="submit">Submit Order</button>
             </div>
           </form>
 
-          <div>
-            <h3>Saved Availability</h3>
-            <div id="availabilityList" class="saved-list"></div>
-          </div>
-        </section>
+          <aside class="summary-card mockup-card">
+            <h3>Live Mockup Preview</h3>
+            <p style="color: var(--muted); margin: 0;">
+              Upload SVG or PNG artwork and choose placement to preview it.
+            </p>
 
-        <section class="tab-panel" id="ordersPanel">
-          <div class="subheading-row">
-            <h3>Recent Submitted Requests</h3>
-            <button id="clearOrders" class="button secondary compact" type="button">Clear Demo Orders</button>
-          </div>
-          <div id="ordersList" class="saved-list"></div>
-        </section>
-      </div>
-    </section>
+            <div style="display: flex; gap: 8px; margin-top: 14px;">
+              <button id="showFront" class="button light" type="button">Front</button>
+              <button id="showBack" class="button light" type="button">Back</button>
+            </div>
 
-    <section id="policies" class="section policies-section">
-      <div class="section-heading">
-        <p class="eyebrow">Terms and policies</p>
-        <h2>How orders are handled</h2>
-      </div>
+            <div class="mockup-wrap">
+              <div id="mockShirt" class="mock-shirt">
+                <div class="mock-neck"></div>
+                <div id="frontPreview" class="design-preview front-center">Front Design</div>
+                <div id="backPreview" class="design-preview back-center hidden">Back Design</div>
+              </div>
+            </div>
 
-      <div class="policy-grid">
-        <article>
-          <h3>Artwork</h3>
-          <p>Vector artwork is preferred. Please upload .svg or .ai files when submitting your request. Low-resolution files may need cleanup before printing.</p>
-        </article>
-        <article>
-          <h3>Timeline</h3>
-          <p>Order timelines depend on garment availability, design approval, and the print schedule. Rush orders may not always be possible.</p>
-        </article>
-        <article>
-          <h3>Approval</h3>
-          <p>Printing begins after garment details, artwork placement, quantity, pricing, and pickup details are confirmed.</p>
-        </article>
-        <article>
-          <h3>Changes</h3>
-          <p>Changes after approval may affect completion date and final cost. Reprints are reviewed case by case.</p>
-        </article>
-      </div>
-    </section>
+            <p style="color: var(--muted); margin-top: 12px;">
+              This mockup is a preview only. Final placement will be confirmed before printing.
+            </p>
+
+            <button class="button light" type="button" onclick="showPage('homePage')">Back to Home</button>
+          </aside>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <footer class="site-footer">
-    <span>St. Veronica Garments</span>
+  <div id="termsModal" class="modal-backdrop">
+    <div class="modal">
+      <h2>St. Veronica’s Garments Ordering Policies</h2>
+
+      <div class="terms-text">
+        <h3>1. Price Structure</h3>
+        <p>The price for your order is based on the cost of wholesale items, plus any additional materials or services required.</p>
+        <p><strong>Wholesale Price:</strong> The base cost of the garment.</p>
+        <p><strong>Supplies:</strong> This includes all materials such as ink, film paper, and other production-related items.</p>
+
+        <h3>2. Production Turnaround</h3>
+        <p>Production time is based on the size of the order:</p>
+        <p>50 items or less: 10 days</p>
+        <p>51-100 items: 2 weeks</p>
+        <p>101+ items: 3 weeks</p>
+        <p>200+ items: 1 month in advance</p>
+        <p>These timelines are estimates and may vary depending on the complexity of the order.</p>
+
+        <h3>3. Payment Terms</h3>
+        <p><strong>Payment Method:</strong> Payment is CASH or Zelle.</p>
+        <p><strong>Deposit Requirement:</strong> A 50% deposit is required upon signing the invoice to begin processing your order.</p>
+        <p><strong>Order Confirmation:</strong> Your order is not confirmed until the invoice is signed and the deposit is paid.</p>
+        <p>Deposits are non-refundable.</p>
+
+        <h3>4. Final Delivery and Pickup</h3>
+        <p>Once your order is completed, you will be notified to arrange pickup. The balance of your invoice is due upon pickup in CASH or through Zelle.</p>
+
+        <h3>5. Disclaimer</h3>
+        <p>By signing the invoice and submitting your deposit, you agree to these Terms and Conditions, which govern all aspects of your order, including pricing, payment, and production timelines.</p>
+        <p>St. Veronica’s Garments reserves the right to amend these policies at any time, with changes taking effect immediately upon publication.</p>
+        <p>If you have any questions or concerns, please contact us before signing the invoice. We are committed to providing high-quality garments and excellent service.</p>
+        <p><strong>In Christ, St. Veronica’s Garment Servants</strong></p>
+      </div>
+
+      <div class="form-actions">
+        <label class="check-row">
+          <input id="modalTermsCheck" type="checkbox" />
+          <span>I have read the terms and conditions.</span>
+        </label>
+        <button id="closeTerms" class="button primary" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <strong>St. Veronica Garments</strong>
     <span>Made for ministry teams, servants, and community events.</span>
   </footer>
 
   <script>
-    const servantPassword = "servants";
-    const sizeOptions = ["YS", "YM", "YL", "S", "M", "L", "XL", "2XL", "3XL", "4XL"];
+    /*
+      IMPORTANT:
+      After you create your Google Apps Script web app, paste the URL below.
+      Example:
+      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/XXXXX/exec";
+    */
+    const GOOGLE_SCRIPT_URL = "";
 
-    const navToggle = document.querySelector(".nav-toggle");
-    const siteNav = document.querySelector(".site-nav");
-    const sizeRows = document.querySelector("#sizeRows");
-    const addSizeButton = document.querySelector("#addSize");
+    const NOTIFICATION_EMAIL = "fmario1515@gmail.com";
+
+    const pages = document.querySelectorAll(".page");
+    const steps = document.querySelectorAll(".step");
+    const stepButtons = document.querySelectorAll("[data-step-button]");
+    const prevStepButton = document.querySelector("#prevStep");
+    const nextStepButton = document.querySelector("#nextStep");
+    const submitOrderButton = document.querySelector("#submitOrder");
     const orderForm = document.querySelector("#orderForm");
     const orderStatus = document.querySelector("#orderStatus");
-    const unlockServants = document.querySelector("#unlockServants");
-    const loginStatus = document.querySelector("#loginStatus");
-    const servantPortal = document.querySelector("#servantPortal");
-    const loginPanel = document.querySelector("#loginPanel");
-    const availabilityForm = document.querySelector("#availabilityForm");
-    const availabilityStatus = document.querySelector("#availabilityStatus");
-    const availabilityList = document.querySelector("#availabilityList");
-    const ordersList = document.querySelector("#ordersList");
-    const clearOrders = document.querySelector("#clearOrders");
 
-    const storage = {
-      orders: "stVeronicaOrders",
-      availability: "stVeronicaAvailability"
-    };
+    const termsModal = document.querySelector("#termsModal");
+    const openTerms = document.querySelector("#openTerms");
+    const closeTerms = document.querySelector("#closeTerms");
+    const termsCheck = document.querySelector("#termsCheck");
+    const modalTermsCheck = document.querySelector("#modalTermsCheck");
+
+    const mockShirt = document.querySelector("#mockShirt");
+    const frontPreview = document.querySelector("#frontPreview");
+    const backPreview = document.querySelector("#backPreview");
+    const frontDesign = document.querySelector("#frontDesign");
+    const backDesign = document.querySelector("#backDesign");
+    const frontPlacement = document.querySelector("#frontPlacement");
+    const backPlacement = document.querySelector("#backPlacement");
+    const garmentColor = document.querySelector("#garmentColor");
+
+    const unlockPortal = document.querySelector("#unlockPortal");
+    const loginStatus = document.querySelector("#loginStatus");
+    const portalArea = document.querySelector("#portalArea");
+    const loginPanel = document.querySelector("#loginPanel");
+    const adminTab = document.querySelector("#adminTab");
+
+    const availabilityForm = document.querySelector("#availabilityForm");
+    const availabilityList = document.querySelector("#availabilityList");
+    const availabilityStatus = document.querySelector("#availabilityStatus");
+
+    const photoForm = document.querySelector("#photoForm");
+    const photoStatus = document.querySelector("#photoStatus");
+    const uploadedProjectGrid = document.querySelector("#uploadedProjectGrid");
+
+    let currentStep = 0;
+
+    function showPage(pageId) {
+      pages.forEach((page) => page.classList.toggle("active", page.id === pageId));
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updateStep() {
+      steps.forEach((step, index) => step.classList.toggle("active", index === currentStep));
+      stepButtons.forEach((button, index) => button.classList.toggle("active", index === currentStep));
+      prevStepButton.classList.toggle("hidden", currentStep === 0);
+      nextStepButton.classList.toggle("hidden", currentStep === steps.length - 1);
+      submitOrderButton.classList.toggle("hidden", currentStep !== steps.length - 1);
+      orderStatus.textContent = "";
+    }
+
+    function validateCurrentStep() {
+      const currentFields = steps[currentStep].querySelectorAll("input, select, textarea");
+      for (const field of currentFields) {
+        if (!field.checkValidity()) {
+          field.reportValidity();
+          return false;
+        }
+      }
+      return true;
+    }
+
+    nextStepButton.addEventListener("click", () => {
+      if (!validateCurrentStep()) return;
+      currentStep = Math.min(currentStep + 1, steps.length - 1);
+      updateStep();
+    });
+
+    prevStepButton.addEventListener("click", () => {
+      currentStep = Math.max(currentStep - 1, 0);
+      updateStep();
+    });
+
+    stepButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const stepNumber = Number(button.dataset.stepButton);
+        if (stepNumber > currentStep && !validateCurrentStep()) return;
+        currentStep = stepNumber;
+        updateStep();
+      });
+    });
+
+    openTerms.addEventListener("click", () => {
+      termsModal.classList.add("open");
+    });
+
+    closeTerms.addEventListener("click", () => {
+      if (modalTermsCheck.checked) termsCheck.checked = true;
+      termsModal.classList.remove("open");
+    });
+
+    termsModal.addEventListener("click", (event) => {
+      if (event.target === termsModal) termsModal.classList.remove("open");
+    });
+
+    garmentColor.addEventListener("change", () => {
+      mockShirt.style.background = garmentColor.value || "#f7efd8";
+    });
+
+    function readPreviewFile(fileInput, previewElement) {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const allowed = ["image/png", "image/svg+xml"];
+      if (!allowed.includes(file.type)) {
+        alert("Preview only supports SVG or PNG files.");
+        fileInput.value = "";
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        previewElement.innerHTML = `<img src="${reader.result}" alt="Design preview" />`;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    frontDesign.addEventListener("change", () => readPreviewFile(frontDesign, frontPreview));
+    backDesign.addEventListener("change", () => readPreviewFile(backDesign, backPreview));
+
+    frontPlacement.addEventListener("change", () => {
+      frontPreview.className = "design-preview " + frontPlacement.value;
+    });
+
+    backPlacement.addEventListener("change", () => {
+      backPreview.className = "design-preview " + backPlacement.value;
+    });
+
+    document.querySelector("#showFront").addEventListener("click", () => {
+      frontPreview.classList.remove("hidden");
+      backPreview.classList.add("hidden");
+    });
+
+    document.querySelector("#showBack").addEventListener("click", () => {
+      backPreview.classList.remove("hidden");
+      frontPreview.classList.add("hidden");
+    });
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
 
     function getStored(key) {
       try {
@@ -1462,122 +1351,53 @@
       localStorage.setItem(key, JSON.stringify(value));
     }
 
-    function escapeHtml(value) {
-      return String(value ?? "")
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+    function getSizes(formData) {
+      const sizes = ["YXS", "YS", "YM", "YL", "YXL", "S", "M", "L", "XL", "2XL"];
+      return sizes.map((size) => ({
+        size,
+        quantity: Number(formData.get("size_" + size) || 0)
+      })).filter((item) => item.quantity > 0);
     }
 
-    function createSizeRow(size = "", quantity = "") {
-      const row = document.createElement("div");
-      row.className = "size-row";
-      row.innerHTML = `
-        <label>
-          Size
-          <select name="sizes[]" required>
-            <option value="">Select size</option>
-            ${sizeOptions.map((option) => `<option ${option === size ? "selected" : ""}>${option}</option>`).join("")}
-          </select>
-        </label>
-        <label>
-          Amount
-          <input name="quantities[]" type="number" min="0" value="${quantity}" required />
-        </label>
-        <button class="remove-size" type="button" aria-label="Remove size row" title="Remove size">x</button>
-      `;
+    async function fileToData(fileInput) {
+      const file = fileInput.files[0];
+      if (!file) return null;
 
-      row.querySelector(".remove-size").addEventListener("click", () => {
-        if (sizeRows.children.length > 1) {
-          row.remove();
-        }
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          resolve({
+            name: file.name,
+            type: file.type,
+            data: reader.result
+          });
+        };
+        reader.readAsDataURL(file);
       });
-
-      sizeRows.append(row);
     }
 
-    function collectSizes(form) {
-      const sizes = [...form.querySelectorAll('select[name="sizes[]"]')];
-      const quantities = [...form.querySelectorAll('input[name="quantities[]"]')];
-
-      return sizes
-        .map((sizeField, index) => ({
-          size: sizeField.value,
-          quantity: Number(quantities[index].value)
-        }))
-        .filter((item) => item.size && item.quantity > 0);
-    }
-
-    function renderOrders() {
-      const orders = getStored(storage.orders);
-
-      if (!orders.length) {
-        ordersList.innerHTML = '<p class="saved-item">No demo order requests have been submitted on this browser yet.</p>';
-        return;
-      }
-
-      ordersList.innerHTML = orders.map((order) => {
-        const sizes = order.sizes.map((item) => `${escapeHtml(item.size)}: ${escapeHtml(item.quantity)}`).join(", ");
-        const placementNotes = order.placementNotes ? ` | ${escapeHtml(order.placementNotes)}` : "";
-
-        return `
-          <article class="saved-item">
-            <strong>${escapeHtml(order.eventName)}</strong>
-            <span>${escapeHtml(order.name)} | ${escapeHtml(order.email)} | ${escapeHtml(order.phone)}</span>
-            <span>Needed by ${escapeHtml(order.neededBy)} | ${escapeHtml(order.garmentType)} in ${escapeHtml(order.garmentColor)} | Ink: ${escapeHtml(order.inkColor)}</span>
-            <span>Sizes: ${sizes}</span>
-            <span>Placement: ${escapeHtml(order.placement)}${placementNotes}</span>
-            <span>File: ${escapeHtml(order.fileName)}</span>
-          </article>
-        `;
-      }).join("");
-    }
-
-    function renderAvailability() {
-      const entries = getStored(storage.availability);
-
-      if (!entries.length) {
-        availabilityList.innerHTML = '<p class="saved-item">No servant availability has been saved on this browser yet.</p>';
-        return;
-      }
-
-      availabilityList.innerHTML = entries.map((entry) => {
-        const days = entry.days.map(escapeHtml).join(", ") || "No days selected";
-
-        return `
-          <article class="saved-item">
-            <strong>${escapeHtml(entry.servantName)}</strong>
-            <span>Week of ${escapeHtml(entry.weekOf)}</span>
-            <span>Available: ${days}</span>
-            ${entry.notes ? `<span>${escapeHtml(entry.notes)}</span>` : ""}
-          </article>
-        `;
-      }).join("");
-    }
-
-    navToggle.addEventListener("click", () => {
-      const isOpen = siteNav.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    siteNav.addEventListener("click", (event) => {
-      if (event.target.matches("a")) {
-        siteNav.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    addSizeButton.addEventListener("click", () => createSizeRow());
-
-    orderForm.addEventListener("submit", (event) => {
+    orderForm.addEventListener("submit", async (event) => {
       event.preventDefault();
 
+      if (!orderForm.checkValidity()) {
+        orderForm.reportValidity();
+        return;
+      }
+
       const formData = new FormData(orderForm);
-      const file = formData.get("designFile");
+      const sizes = getSizes(formData);
+
+      if (!sizes.length) {
+        orderStatus.textContent = "Please enter at least one size quantity.";
+        currentStep = 2;
+        updateStep();
+        return;
+      }
+
+      orderStatus.textContent = "Submitting...";
 
       const order = {
+        notificationEmail: NOTIFICATION_EMAIL,
         submittedAt: new Date().toISOString(),
         name: formData.get("name"),
         email: formData.get("email"),
@@ -1588,88 +1408,152 @@
         garmentType: formData.get("garmentType"),
         garmentColor: formData.get("garmentColor"),
         inkColor: formData.get("inkColor"),
-        sizes: collectSizes(orderForm),
-        placement: formData.get("placement"),
-        placementNotes: formData.get("placementNotes"),
-        fileName: file?.name || "No file name captured"
+        sizes,
+        frontPlacement: formData.get("frontPlacement"),
+        backPlacement: formData.get("backPlacement"),
+        designNotes: formData.get("designNotes"),
+        signature: formData.get("signature"),
+        frontDesign: await fileToData(frontDesign),
+        backDesign: await fileToData(backDesign)
       };
 
-      if (!order.sizes.length) {
-        orderStatus.textContent = "Please add at least one size with an amount greater than 0.";
-        return;
+      if (GOOGLE_SCRIPT_URL) {
+        try {
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(order)
+          });
+
+          orderStatus.textContent = "Order submitted. You should receive confirmation soon.";
+        } catch (error) {
+          orderStatus.textContent = "There was a problem submitting. Please contact St. Veronica Garments.";
+        }
+      } else {
+        console.log("Demo order:", order);
+        orderStatus.textContent = "Demo submitted. Add your Google Apps Script URL to make emails and calendar work.";
       }
 
-      const orders = getStored(storage.orders);
-      orders.unshift(order);
-      setStored(storage.orders, orders);
-
-      orderStatus.textContent = "Order request saved for this demo. Connect this form to email or a backend before launch.";
       orderForm.reset();
-      sizeRows.innerHTML = "";
-      createSizeRow();
-      renderOrders();
+      modalTermsCheck.checked = false;
+      frontPreview.innerHTML = "Front Design";
+      backPreview.innerHTML = "Back Design";
+      mockShirt.style.background = "#f7efd8";
+      currentStep = 0;
+      updateStep();
     });
 
-    unlockServants.addEventListener("click", () => {
-      const value = document.querySelector("#servantPassword").value.trim();
+    unlockPortal.addEventListener("click", () => {
+      const password = document.querySelector("#portalPassword").value.trim();
 
-      if (value !== servantPassword) {
+      if (password !== "servant" && password !== "admin") {
         loginStatus.textContent = "Password not recognized.";
         return;
       }
 
       loginStatus.textContent = "";
       loginPanel.classList.add("hidden");
-      servantPortal.classList.remove("hidden");
+      portalArea.classList.remove("hidden");
+
+      if (password === "admin") adminTab.classList.remove("hidden");
+
       renderAvailability();
-      renderOrders();
     });
 
     document.querySelectorAll(".tab").forEach((tab) => {
       tab.addEventListener("click", () => {
-        document.querySelectorAll(".tab").forEach((item) => {
-          item.classList.toggle("active", item === tab);
-          item.setAttribute("aria-selected", String(item === tab));
-        });
-
-        document.querySelectorAll(".tab-panel").forEach((panel) => {
-          panel.classList.toggle("active", panel.id === `${tab.dataset.tab}Panel`);
-        });
+        document.querySelectorAll(".tab").forEach((item) => item.classList.remove("active"));
+        document.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.remove("active"));
+        tab.classList.add("active");
+        document.querySelector("#" + tab.dataset.tab).classList.add("active");
       });
     });
+
+    function renderAvailability() {
+      const entries = getStored("svgAvailability");
+
+      if (!entries.length) {
+        availabilityList.innerHTML = '<p class="saved-item">No availability saved on this browser yet.</p>';
+        return;
+      }
+
+      availabilityList.innerHTML = entries.map((entry) => `
+        <article class="saved-item">
+          <strong>${escapeHtml(entry.name)}</strong>
+          <span>Week of ${escapeHtml(entry.week)}</span>
+          <span>Available: ${entry.days.map(escapeHtml).join(", ") || "No days selected"}</span>
+          ${entry.notes ? `<span>${escapeHtml(entry.notes)}</span>` : ""}
+        </article>
+      `).join("");
+    }
 
     availabilityForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
       const formData = new FormData(availabilityForm);
-
       const entry = {
-        servantName: formData.get("servantName"),
-        weekOf: formData.get("weekOf"),
+        name: formData.get("servantName"),
+        week: formData.get("weekOf"),
         days: formData.getAll("days"),
-        notes: formData.get("availabilityNotes"),
-        submittedAt: new Date().toISOString()
+        notes: formData.get("availabilityNotes")
       };
 
-      const entries = getStored(storage.availability);
+      const entries = getStored("svgAvailability");
       entries.unshift(entry);
-      setStored(storage.availability, entries);
+      setStored("svgAvailability", entries);
 
       availabilityStatus.textContent = "Availability saved for this demo.";
       availabilityForm.reset();
       renderAvailability();
     });
 
-    clearOrders.addEventListener("click", () => {
-      setStored(storage.orders, []);
-      renderOrders();
+    function renderPhotos() {
+      const photos = getStored("svgCompletedPhotos");
+
+      if (!photos.length) {
+        uploadedProjectGrid.innerHTML = "";
+        return;
+      }
+
+      uploadedProjectGrid.innerHTML = photos.map((photo) => `
+        <article class="project-card">
+          <img class="uploaded-image" src="${photo.image}" alt="${escapeHtml(photo.title)}" />
+          <div class="project-copy">
+            <h3>${escapeHtml(photo.title)}</h3>
+            <p>${escapeHtml(photo.description)}</p>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    photoForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(photoForm);
+      const file = formData.get("photoFile");
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        const photos = getStored("svgCompletedPhotos");
+        photos.unshift({
+          title: formData.get("photoTitle"),
+          description: formData.get("photoDescription"),
+          image: reader.result
+        });
+
+        setStored("svgCompletedPhotos", photos);
+        photoStatus.textContent = "Photo added to completed work on this browser.";
+        photoForm.reset();
+        renderPhotos();
+      };
+
+      reader.readAsDataURL(file);
     });
 
-    createSizeRow("S", 0);
-    createSizeRow("M", 0);
-    createSizeRow("L", 0);
+    updateStep();
+    renderPhotos();
     renderAvailability();
-    renderOrders();
   </script>
 </body>
 </html>

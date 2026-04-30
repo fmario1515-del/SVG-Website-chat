@@ -569,8 +569,8 @@
           </p>
 
           <div class="verse">
-            â€œAs each one has received a gift, minister it to one another, as good stewards
-            of the manifold grace of God.â€
+            "As each one has received a gift, minister it to one another, as good stewards
+            of the manifold grace of God."
             <strong>1 Peter 4:10</strong>
           </div>
 
@@ -1153,6 +1153,12 @@
     let currentStep = 0;
     let pendingAvailabilitySlots = [];
     let currentPortalUser = null;
+
+    function showPage(pageId) {
+      pages.forEach((page) => page.classList.toggle("active", page.id === pageId));
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    window.showPage = showPage;
 
     function updateStep() {
       steps.forEach((step, index) => step.classList.toggle("active", index === currentStep));

@@ -1359,9 +1359,18 @@
       return orders;
     }
 
+    function sendToGoogleScript(payload) {
+      return fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
+    }
+
     function saveLocalOrder(order) {
       const orders = cleanupOrders();
-      orders.unshift({ ...order, id: Date.now(), status: "submitted", completedAt: "" });
+      orders.unshift({ ...order, status: order.status || "submitted", completedAt: order.completedAt || "" });
       setStored("svgOrders", orders);
     }
 
@@ -1375,11 +1384,12 @@
       ordersList.innerHTML = orders.map((order) => {
         const status = order.status || "submitted";
         const statusClass = ["submitted", "started", "completed"].includes(status) ? status : "submitted";
+        const orderId = escapeHtml(order.id);
         const adminControls = currentPortalUser?.role === "admin"
           ? `<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;grid-column:1 / -1;">
-              <button class="button light" type="button" onclick="updateOrderStatus(${order.id}, 'started')">Started</button>
-              <button class="button primary" type="button" onclick="updateOrderStatus(${order.id}, 'completed')">Completed</button>
-              <button class="button light" type="button" onclick="deleteOrder(${order.id})">Delete Order</button>
+              <button class="button light" type="button" onclick="updateOrderStatus('${orderId}', 'started')">Started</button>
+              <button class="button primary" type="button" onclick="updateOrderStatus('${orderId}', 'completed')">Completed</button>
+              <button class="button light" type="button" onclick="deleteOrder('${orderId}')">Delete Order</button>
             </div>`
           : "";
 
@@ -1400,7 +1410,7 @@
 
     function updateOrderStatus(id, status) {
       const orders = getStored("svgOrders").map((order) => {
-        if (order.id !== id) return order;
+        if (String(order.id) !== String(id)) return order;
         return {
           ...order,
           status,
@@ -1409,14 +1419,16 @@
       });
       setStored("svgOrders", orders);
       renderOrders();
+      sendToGoogleScript({ action: "updateOrderStatus", id, status }).catch(() => {});
     }
     window.updateOrderStatus = updateOrderStatus;
 
     function deleteOrder(id) {
       if (!confirm("Delete this order from the admin list?")) return;
-      const orders = getStored("svgOrders").filter((order) => order.id !== id);
+      const orders = getStored("svgOrders").filter((order) => String(order.id) !== String(id));
       setStored("svgOrders", orders);
       renderOrders();
+      sendToGoogleScript({ action: "deleteOrder", id }).catch(() => {});
     }
     window.deleteOrder = deleteOrder;
 
@@ -1439,6 +1451,8 @@
 
       orderStatus.textContent = "Submitting...";
       const order = {
+        action: "createOrder",
+        id: Date.now().toString(),
         notificationEmail: NOTIFICATION_EMAIL,
         submittedAt: new Date().toISOString(),
         name: formData.get("name"),
@@ -1463,12 +1477,7 @@
       renderOrders();
 
       try {
-        await fetch(GOOGLE_SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(order)
-        });
+        await sendToGoogleScript(order);
         orderStatus.textContent = "Order submitted. You should receive confirmation soon.";
       } catch (error) {
         orderStatus.textContent = "The order was saved locally, but email/calendar submission had a problem.";
@@ -1704,6 +1713,7 @@
       setStored("svgAvailability", entries);
       renderAvailability();
       renderAllAvailability();
+      if (entryId) sendToGoogleScript({ action: "deleteAvailability", id: entryId }).catch(() => {});
     }
     window.deleteAvailability = deleteAvailability;
 
@@ -1716,7 +1726,7 @@
 
       const formData = new FormData(availabilityForm);
       const entry = {
-        id: Date.now(),
+        id: Date.now().toString(),
         name: formData.get("servantName"),
         week: getWeekKey(),
         slots: pendingAvailabilitySlots,
@@ -1726,6 +1736,7 @@
       const entries = currentWeekAvailability();
       entries.unshift(entry);
       setStored("svgAvailability", entries);
+      sendToGoogleScript({ action: "saveAvailability", ...entry }).catch(() => {});
 
       availabilityStatus.textContent = "Availability saved for this week.";
       availabilityForm.reset();
